@@ -1,0 +1,13 @@
+# 1) clone source and target
+git clone https://github.com/martmyer/visionary-web-design.git ~/visionary-src
+git clone https://github.com/martmyer/MartinMyersportfolio-.git ~/MartinMyersportfolio
+
+# 2) copy files into a subdirectory (excluding .git and heavy folders)
+cd ~/MartinMyersportfolio
+mkdir -p projects/visionary-web-design
+rsync -av --exclude='.git' --exclude='node_modules' --exclude='.env' ~/visionary-src/ projects/visionary-web-design/
+
+# 3) add, commit, and push
+git add .
+git commit -m "Add Visionary Web Design project (snapshot import)"
+git push origin HEAD
